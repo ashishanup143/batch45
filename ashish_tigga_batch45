@@ -1,0 +1,25 @@
+    1 .kubectl delete all --all
+       cd $home
+       yum install git -y
+       git clone https://github.com/ashishrpandey/example-voting-app
+       cd /root/example-voting-app/k8s-specifications/
+       ll
+       vi vote-deployment.yaml
+       vi vote-service.yaml
+       ll
+       vi result-service.yaml
+       cat vote-service.yaml
+       cat result-service.yaml
+       kubectl apply -f .
+       kubectl get pod -o wide
+       k get pod
+       kubectl get pod
+    
+    
+    2.  when  i deleted voting pod within a second new pod created with different id & on gui no impact.
+    
+    3.  no changes in gui after worker pod delete. in cli new worker pod created with new id.
+    
+    4.  after deleting db node after some time new pod created with new id. in gui voting result reset to its initial output value then in voting window once i clicked to any 1 option in voting result window value got updated as present option clicked.
+    
+    10.  for working result pod fine  i scale out result pod  to 3 ( kubectl scale deploy result --replicas=3). now no delay observed now and every time from those 3 replica pod one is assigned to voting pod.
